@@ -1,0 +1,148 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseShop.Pages.Cart"
+             Style="{StaticResource CustomContentPage}">
+    
+    <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+        <ScrollView>
+            <Grid Margin="20" RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+            
+                <StackLayout Grid.Row="0" Spacing="30">
+                    <CollectionView x:Name="CartProduct"
+                                    Margin="0,12" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Style="{StaticResource CustomFrame}">
+                                    <Grid ColumnSpacing="15">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0">
+                                            <Image Aspect="AspectFit"
+                                               HeightRequest="100"
+                                               Source="{Binding Picture}"
+                                               WidthRequest="100" />
+                                        </StackLayout>
+                                        
+                                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Grid RowSpacing="10">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <StackLayout Grid.Row="0" Spacing="6">
+                                                    <Label FontSize="16"
+                                                           HorizontalOptions="Start"
+                                                           Text="{Binding ProductName}"
+                                                           TextColor="Black"/>
+                                                </StackLayout>
+                                                <HorizontalStackLayout Grid.Row="1">
+                                                    <Grid ColumnSpacing="50">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Grid.Column="0" FontSize="16"
+                                                               Text="{Binding SalePrice}"
+                                                               VerticalOptions="Center"
+                                                               TextColor="#00C569"/>
+                                                        <Label Grid.Column="1" x:Name="QuantityEntry"
+                                                               Text="{Binding Quantity}" 
+                                                               WidthRequest="20" 
+                                                               VerticalOptions="Center"
+                                                               
+                                                               TextColor="Black"/>
+                                                    </Grid>
+                                                </HorizontalStackLayout>
+                                                <HorizontalStackLayout Grid.Row="2">
+                                                    <Grid HorizontalOptions="Center" ColumnSpacing="10">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Button
+                                                            Grid.Column="0"
+                                                            Text="−"
+                                                            FontAttributes="Bold"
+                                                            HeightRequest="30"
+                                                            FontSize = "10"
+                                                            TextColor = "White"
+                                                            BackgroundColor = "#00C569"
+                                                            Clicked="DecrementButton_Clicked" />
+                                                        <Button
+                                                            Grid.Column="1"
+                                                            Text="+"
+                                                            FontAttributes="Bold"
+                                                            HeightRequest="30"
+                                                            FontSize = "10"
+                                                            TextColor = "White"
+                                                            BackgroundColor = "#00C569"
+                                                            Clicked="IncrementButton_Clicked"
+                                                        />
+                                                    </Grid>
+                                                </HorizontalStackLayout>
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                        <StackLayout Grid.Column="2"
+                                                     HorizontalOptions="End"
+                                                     VerticalOptions="Start">
+                                            <Button Text="*" 
+                                                    FontAttributes="Bold"
+                                                    WidthRequest="30"
+                                                    HeightRequest="30"
+                                                    FontSize = "10"
+                                                    TextColor = "White"
+                                                    BackgroundColor = "Red"
+                                                    Clicked="RemoveProduct_Clicked"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                
+                <VerticalStackLayout Grid.Row="1" Spacing="5">
+                    <CollectionView x:Name="CartFees">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="20" BackgroundColor="LightGray" RowSpacing="10" Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0" >
+                                        <Label Text="{Binding ProductName}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                                        <Label Text="{Binding SalePrice}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" >
+                                     <!--   <Label Text="×{Binding Quantity}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                                         <Label x:Name="Total" Text="0" FontSize="Large" FontAttributes="Bold" /> 
+                                        <Label Text="Total : {Binding Quantity * Binding SalePrice}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                                    --></Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Text="Total Fee:" FontSize="Large" FontAttributes="Bold" TextColor="Black" />
+                    <Label x:Name="TotalFee" Text="000" FontSize="Large" FontAttributes="Bold" TextColor="Black" />
+                </VerticalStackLayout>
+            
+                <VerticalStackLayout Grid.Row="2" Spacing="5">
+                    <Button Style="{StaticResource ButtonStyle}" Text="Proceed"  Clicked="ProceedButton_Clicked" Margin="0,20,0,0" />
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+    </RefreshView>
+</ContentPage>

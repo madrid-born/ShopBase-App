@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="BaseShop.Pages.AllProducts">
+<ContentPage.Content>
+            <StackLayout>
+        <Label
+            FontAttributes="Bold"
+            FontSize="16"
+            HorizontalOptions="Start"
+            HorizontalTextAlignment="Start"
+            Text="Products"
+            TextColor="Black"
+            VerticalOptions="Center" />
+
+        <CollectionView Margin="12" x:Name="GetProducts">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="12"
+                    Orientation="Vertical"
+                    Span="2"
+                    VerticalItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <StackLayout
+                            Margin="0"
+                            Background="White"
+                            HorizontalOptions="FillAndExpand">
+                            <Border Background="transparent"
+                                    StrokeShape="RoundRectangle 6,0,0,6"
+                                    StrokeThickness="1">
+                                <Image
+                                    Aspect="AspectFit"
+                                    Source="{Binding Picture}"
+                                    HeightRequest="150" />
+                            </Border>
+
+                            <StackLayout Margin="0,8,0,0">
+                                <Label
+                                    FontSize="16"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding ProductName}"
+                                    TextColor="Black"
+                                    VerticalOptions="Start" />
+
+                                <Label
+                                    FontSize="12"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding BrandTitle}"
+                                    TextColor="#929292"
+                                    VerticalOptions="Start" />
+
+                                <Label
+                                    FontSize="16"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding SalePrice, StringFormat='ريال {0}'}"
+                                    TextColor="#00C569"
+                                    VerticalOptions="Start" />
+                            </StackLayout>
+                        </StackLayout>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ProductTapped" CommandParameter="{Binding .}" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage.Content>
+</ContentPage>

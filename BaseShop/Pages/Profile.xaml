@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseShop.Pages.Profile"
+             Style="{StaticResource CustomContentPage}">
+    <Grid Margin="20" RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Margin="20"
+                     VerticalOptions="CenterAndExpand">
+            <Label FontAttributes="Bold"
+                   FontSize="26"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="NamePlaceHolder"
+                   TextColor="Black"
+                   VerticalTextAlignment="Center" />
+            <Label FontSize="14"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="EmailPlaceHolder@gmail.com"
+                   TextColor="Black"
+                   VerticalTextAlignment="Center" />
+        </StackLayout>
+    
+        <HorizontalStackLayout Grid.Row="2" Spacing="20">
+           <Grid>
+               <Grid.ColumnDefinitions>
+                   <ColumnDefinition Width="*"></ColumnDefinition>
+                   <ColumnDefinition Width="40"></ColumnDefinition>
+               </Grid.ColumnDefinitions>
+               <Label FontSize="24"
+                      Margin="18,0"
+                      Grid.Column="0"
+                      HorizontalOptions="Start"
+                      FontAttributes="Bold"
+                      VerticalTextAlignment="Center"
+                      Text="Purchase History"
+                      TextColor="Black"
+                      VerticalOptions="Center" />
+               <Grid.GestureRecognizers>
+                   <TapGestureRecognizer Tapped="PurchaseHistory"/>
+               </Grid.GestureRecognizers>
+           </Grid>
+       </HorizontalStackLayout>
+       
+       <HorizontalStackLayout Grid.Row="3" Spacing="20">
+           <Grid>
+               <Grid.ColumnDefinitions>
+                   <ColumnDefinition Width="*"></ColumnDefinition>
+                   <ColumnDefinition Width="40"></ColumnDefinition>
+               </Grid.ColumnDefinitions>
+               <Label FontSize="24"
+                      Margin="18,0"
+                      Grid.Column="0"
+                      HorizontalOptions="Start"
+                      FontAttributes="Bold"
+                      VerticalTextAlignment="Center"
+                      Text="Favorite List"
+                      TextColor="Black"
+                      VerticalOptions="Center" />
+               <Grid.GestureRecognizers>
+                   <TapGestureRecognizer Tapped="FavoriteList"/>
+               </Grid.GestureRecognizers>
+           </Grid>
+       </HorizontalStackLayout>
+       
+       <HorizontalStackLayout Grid.Row="4" Spacing="20">
+           <Grid>
+               <Grid.ColumnDefinitions>
+                   <ColumnDefinition Width="*"></ColumnDefinition>
+                   <ColumnDefinition Width="40"></ColumnDefinition>
+               </Grid.ColumnDefinitions>
+               <Label FontSize="24"
+                      Margin="18,0"
+                      Grid.Column="0"
+                      HorizontalOptions="Start"
+                      FontAttributes="Bold"
+                      VerticalTextAlignment="Center"
+                      Text="Edit Profile"
+                      TextColor="Black"
+                      VerticalOptions="Center" />
+
+               <Grid.GestureRecognizers>
+                   <TapGestureRecognizer Tapped="AccountInformation"/>
+               </Grid.GestureRecognizers>
+           </Grid>
+       </HorizontalStackLayout>
+       
+       
+       <HorizontalStackLayout Grid.Row="5" Spacing="20">
+           <Grid>
+               <Grid.ColumnDefinitions>
+                   <ColumnDefinition Width="*"></ColumnDefinition>
+                   <ColumnDefinition Width="40"></ColumnDefinition>
+               </Grid.ColumnDefinitions>
+               <Label FontSize="24"
+                      Margin="18,0"
+                      Grid.Column="0"
+                      HorizontalOptions="Start"
+                      FontAttributes="Bold"
+                      VerticalTextAlignment="Center"
+                      Text="Sign Out"
+                      TextColor="Black"
+                      VerticalOptions="Center" />
+               <Grid.GestureRecognizers>
+                   <TapGestureRecognizer Tapped="Signout"/>
+               </Grid.GestureRecognizers>
+           </Grid>
+       </HorizontalStackLayout>
+   </Grid>
+</ContentPage>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Style="{StaticResource CustomContentPage}"
+             x:Class="BaseShop.Pages.LoginPage">
+    <ContentPage.BackgroundImageSource>
+        <FileImageSource File="sample1.jpg" />
+    </ContentPage.BackgroundImageSource>
+    
+    <ContentPage.Content>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" /> 
+                <RowDefinition Height="410" /> 
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20">
+                
+                <Frame
+                    x:Name="login_frame"
+                    CornerRadius="24"
+                    Padding="24,32"
+                    Style="{StaticResource CustomFrame}"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="End"
+                    Margin="20">
+                    
+                    <VerticalStackLayout
+                        Spacing="16">
+                        <Label
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="Black"
+                            Text="Please enter your Email and Password!"/>
+                    
+                        <Frame Style="{StaticResource CustomFrame}" HeightRequest="60" BorderColor="Black">
+                            <Entry  Style="{StaticResource CustomEntry}" Placeholder="Email" />
+                        </Frame>
+                    
+                        <Frame Style="{StaticResource CustomFrame}" HeightRequest="60" BorderColor="Black">
+                            <Entry  Style="{StaticResource CustomEntry}" Placeholder="Password" IsPassword="True" />
+                        </Frame>
+
+                        <Button
+                            Style="{StaticResource ButtonStyle}"
+                            Text="Log In"
+                            HorizontalOptions="Center"
+                            Margin="0,12,0,6"
+                            Clicked="LoginButton_Clicked"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

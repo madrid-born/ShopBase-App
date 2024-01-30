@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseShop.Pages.ProductPage"
+             Style="{StaticResource CustomContentPage}">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackLayout Grid.Row="0">
+                        <Border
+                            VerticalOptions="Start"
+                            Padding="0"
+                            Background="transparent"
+                            StrokeShape="RoundRectangle 0,0,40,40"
+                            StrokeThickness="0">
+                            <Image 
+                                x:Name="PImage"
+                                Aspect="AspectFit"
+                                HeightRequest="400"/>
+                        </Border>
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="1" Spacing="10">
+                        <Label
+                            x:Name="PNAme"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand"
+                            FontAttributes="Bold" 
+                            TextColor="Black"
+                            FontSize="24"/>
+                        <Label x:Name="PBrand"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"
+                               TextColor="Black"
+                               FontSize="20"/>
+                        <Label x:Name="PDesc"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"
+                               TextColor="Black"
+                               FontSize="20"/>
+                        <Rectangle HeightRequest="2" BackgroundColor="Black"></Rectangle>
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Row="2">
+                        <CollectionView x:Name="GetProducts">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Style="{StaticResource CustomFrame}" HeightRequest="120">
+                                        <VerticalStackLayout Spacing="10">
+                                            <Grid Margin="20" RowSpacing="20">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Grid.Column="0">
+                                                    <Label Text="{Binding Color, StringFormat='Color : {0}'}"
+                                                           HorizontalOptions="Center"
+                                                           TextColor="Black"
+                                                           FontSize="20"/>
+                                                    <Label Text="{Binding Size, StringFormat='Size : {0}'}"
+                                                           HorizontalOptions="Center"
+                                                           TextColor="Black"
+                                                           FontSize="20"/>
+                                                    <Label Text="{Binding SalePrice}"
+                                                           HorizontalOptions="Center"
+                                                           TextColor="#00C569"
+                                                           FontSize="20"/>
+                                                </StackLayout>
+                                                <StackLayout Grid.Column="1">
+                                                    <Button Text="add to cart" 
+                                                            TextColor="White" 
+                                                            BackgroundColor="#00C569" 
+                                                            Clicked="addToCart_Clicked" 
+                                                            Margin="0,0,10,0"
+                                                            CommandParameter="{Binding .}"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

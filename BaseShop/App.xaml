@@ -1,0 +1,60 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BaseShop"
+             x:Class="BaseShop.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Custom Entry for email and password -->
+            <Style x:Key="CustomEntry" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="Black" />
+                <Setter Property="TextColor" Value="#333333" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Margin" Value="10,10" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+            
+            <!-- button -->
+            <Style TargetType="Button" x:Key="ButtonStyle">
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="HeightRequest" Value="52" />
+                <Setter Property="Padding" Value="64,0" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="MediumFont" />
+                <Setter Property="CornerRadius" Value="26" />
+                <Setter Property="BackgroundColor" Value="#00C569" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="BorderColor" Value="Transparent" />
+            </Style>
+            
+            <!-- Content Page -->
+            <Style TargetType="ContentPage" x:Key="CustomContentPage">
+                <Setter Property="BackgroundColor" Value="WhiteSmoke" />
+            </Style>
+            
+            <!-- Frame -->
+            <Style TargetType="Frame" x:Key="CustomFrame">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="Transparent"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="Padding" Value="10,5"/>
+            </Style>
+            
+            <!-- Border -->
+            <Style TargetType="Border" x:Key="CustomBorder">
+                <Setter Property="StrokeShape" Value="RoundRectangle 5,5,5,5"/>
+                <Setter Property="Stroke" Value="Lightgray"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Padding" Value="4"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaseShop.Pages.PurchaseHistory"
+             Style="{StaticResource CustomContentPage}">
+    <ContentPage.Content>
+        <ScrollView>
+            <Frame Style="{StaticResource CustomFrame}">
+                <VerticalStackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <VerticalStackLayout Grid.Column="0" HorizontalOptions="StartAndExpand">
+                            <Label FontSize="16"
+                                   HorizontalOptions="StartAndExpand"
+                                   Text="1402/6/9 - 04:20"
+                                   TextColor="Black">
+                            </Label>
+                            
+                            <Label FontSize="16"
+                                   HorizontalOptions="StartAndExpand"
+                                   Text="OD-432453-24"
+                                   TextColor="Black">
+                            </Label>
+
+                            <Label Margin="0,5"
+                                   FontSize="14"
+                                   HorizontalOptions="StartAndExpand"
+                                   Text="2200000"
+                                   TextColor="#00C569">
+                            </Label>
+
+                            <Frame Margin="0,16"
+                                   Padding="0"
+                                   BorderColor="Transparent"
+                                   BackgroundColor="#00C569"
+                                   CornerRadius="2"
+                                   HasShadow="False"
+                                   IsClippedToBounds="True">
+                                <Label Margin="12,10,12,10"
+                                       FontSize="14"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Text="Delivered"
+                                       TextColor="White"
+                                       VerticalOptions="CenterAndExpand"
+                                       VerticalTextAlignment="Center">
+                                </Label>
+                            </Frame>
+                        </VerticalStackLayout>
+                        
+                        <StackLayout Grid.Column="1">
+                            <Grid HorizontalOptions="EndAndExpand"
+                                  ColumnSpacing="4"
+                                  RowSpacing="4">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Style="{StaticResource CustomBorder}"
+                                        Grid.Column="0"
+                                        Grid.Row="0">
+                                    <Image 
+                                        Source="sample4.jpg"
+                                        Aspect="AspectFit" />
+                                </Border>
+
+
+                                <Border Style="{StaticResource CustomBorder}"
+                                        Grid.Column="1"
+                                        Grid.Row="0">
+                                    <Image 
+                                           Source="sample5.jpg"
+                                           Aspect="AspectFit" />
+                                </Border>
+
+                                <Border Style="{StaticResource CustomBorder}"
+                                        Grid.Column="0"
+                                        Grid.Row="1">
+                                    <Image        
+                                        Source="sample8.jpg"
+                                        Aspect="AspectFit" />
+
+                                </Border>
+
+                                <Border Style="{StaticResource CustomBorder}"
+                                        Grid.Column="1"
+                                        Grid.Row="1">
+                                    <Label FontSize="14"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Text="+3"
+                                           TextColor="Black"
+                                           VerticalOptions="CenterAndExpand">
+                                    </Label>
+                                </Border>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
